@@ -1,0 +1,47 @@
+CURL
+
+curl --location 'localhost:9991/post/create' \
+--header 'Content-Type: application/json' \
+--data '{
+    "userId": "Test1",
+    "communityId": 1111,
+    "postTitle": "Practice 1",
+    "postBody": "Hello World! 1"
+}'
+
+
+curl --location 'localhost:9991/post/getAllPost'
+
+curl --location 'localhost:9991/comment/create' \
+--header 'Content-Type: application/json' \
+--data '{
+    "postId":1,
+    "userId": "test1",
+    "commentBody": "Test Comment1"
+}'
+
+curl --location --request PUT 'localhost:9991/post/update' \
+--header 'Content-Type: application/json' \
+--data '{
+    "postId" : 1,
+    "postTitle" : "Test1",
+    "postBody" : "Test1"
+}'
+
+curl --location --request DELETE 'localhost:9991/post/delete/1'
+
+curl --location 'localhost:9991/post/getUserPost/Test1'
+
+curl --location 'localhost:9991/post/getUserPost/community/1111'
+
+
+
+curl --location --request PATCH 'localhost:9991/comment/update' \
+--header 'Content-Type: application/json' \
+--data '{
+    "commentId": 1,
+    "commentBody": "test comment1"
+}'
+
+curl --location --request DELETE 'localhost:9991/comment/delete/1'
+
